@@ -1,1 +1,1 @@
-<? php include_once ("fire.html"); ?>
+<? php include_once ('fire.html'); ?>
