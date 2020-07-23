@@ -61,7 +61,7 @@
 					clock.setTime(time+ 60 * 30);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -71,7 +71,7 @@
 					clock.setTime(time+ 60 * 10);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -81,7 +81,7 @@
 					clock.setTime(time+ 60 * 5);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -91,7 +91,7 @@
 					clock.setTime(time+ 60 * 1);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -100,7 +100,7 @@
 					clock.setTime(60 * 50);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -109,7 +109,7 @@
 					clock.setTime(60 * 30);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -118,7 +118,7 @@
 					clock.setTime(60 * 25);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -127,7 +127,16 @@
 					clock.setTime(60 * 5);
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
+					$("body").scrollTop(0);
+				});
+		
+				$("#btn_set_1m").click(function(){
+					clock.stop();
+					clock.setTime(60 * 1);
+					clock.start();
+					$("#div_fireworks").hide();
+					$(".clock-container, .container").show();
 					$("body").scrollTop(0);
 				});
 		
@@ -138,7 +147,7 @@
 				$("#btn_start").click(function(){
 					clock.start();
 					$("#div_fireworks").hide();
-					$(".clock-container").show();
+					$(".clock-container, .container").show();
 				});
 		
 				var clock;
@@ -196,7 +205,7 @@
 		</div>
 
 		<!-- App -->
-		<div class="container">
+		<div class="container" style="display: none;">
 			<div class="loading-init">
 				<div class="loading-init__header">Loading</div>
 				<div class="loading-init__status">Assembling Shells</div>
@@ -291,7 +300,9 @@
 		<button id="btn_set_50m"> Set 50 Min</button>
 		<button id="btn_set_30m"> Set 30 Min</button>
 		<button id="btn_set_25m"> Set 25 Min</button>
-		<button id="btn_set_5m"> Set 5 Min</button><p/> 
+		<button id="btn_set_5m"> Set 5 Min</button>
+		<button id="btn_set_1m"> Set 1 Min</button>
+		<p/> 
 
 		<button id="btn_stop"> Stop</button>
 		<button id="btn_start"> Start</button>
