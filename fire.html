@@ -17,13 +17,21 @@
 		
 		<script src="lib/jquery.min.js"></script>
 
+		
 		<script type="text/javascript" src="lib/flipclock.js"></script>
 
+
+		<!-- [TK Yoon(pro@dreamlabs.co.kr) 2021-06-21 09:55:24] -->
+		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
+	
+		
+	
 		<style>
 			body {
 				overflow-x: hidden;
 				margin: 0px;
-				background: whitesmoke;
+				background: #ffe599;
 			    overflow-y: auto;
 			}
 			.clock-container {
@@ -47,7 +55,7 @@
 				display: none; 
 			}
 
-			button {
+			.clock-buttn {
 				zoom: 3;
 			}
 
@@ -201,7 +209,19 @@
 				clock.setCountdown(true);
 				clock.start();
 		
+				$('#color-picker').spectrum({
+					type: "component"
+					, change: function(color) {
+						console.log(color.toHexString());
+						$('body').css("background-color", color.toHexString());
+					}
+				});
+
+				// $('#color-picker').change(function() {
+				// 	console.log($('#color-picker').val());
+				// })
 			});
+
 		</script>
         
     </head>
@@ -325,20 +345,23 @@
 		</div>
 
 
-		<button id="btn_30m">+30 Min</button>
-		<button id="btn_10m">+10 Min</button>
-		<button id="btn_5m">+5 Min</button>
-		<button id="btn_1m"> +1 Min</button><p/>
+		<button id="btn_30m" class="clock-buttn">+30 Min</button>
+		<button id="btn_10m" class="clock-buttn">+10 Min</button>
+		<button id="btn_5m" class="clock-buttn">+5 Min</button>
+		<button id="btn_1m" class="clock-buttn"> +1 Min</button><p/>
 
-		<button id="btn_set_50m"> Set 50 Min</button>
-		<button id="btn_set_30m"> Set 30 Min</button>
-		<button id="btn_set_25m"> Set 25 Min</button>
-		<button id="btn_set_5m"> Set 5 Min</button>
-		<button id="btn_set_1m"> Set 1 Min</button>
+		<button id="btn_set_50m" class="clock-buttn"> Set 50 Min</button>
+		<button id="btn_set_30m" class="clock-buttn"> Set 30 Min</button>
+		<button id="btn_set_25m" class="clock-buttn"> Set 25 Min</button>
+		<button id="btn_set_5m" class="clock-buttn"> Set 5 Min</button>
+		<button id="btn_set_1m" class="clock-buttn"> Set 1 Min</button>
 		<p/> 
 
-		<button id="btn_stop"> Stop</button>
-		<button id="btn_start"> Start</button>
+		<button id="btn_stop" class="clock-buttn"> Stop</button>
+		<button id="btn_start" class="clock-buttn"> Start</button>
+		<p/>
+
+		<input id="color-picker" value='#276cb8' />
 
 		<script type="text/javascript" src="lib/MyMath.js"></script>
 		<script type="text/javascript" src="lib/fscreen@1.0.1.js"></script>
