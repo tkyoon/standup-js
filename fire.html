@@ -21,7 +21,7 @@
 		<script type="text/javascript" src="lib/flipclock.js"></script>
 
 
-		<!-- [TK Yoon(pro@dreamlabs.co.kr) 2021-06-21 09:55:24] -->
+		<!-- https://github.com/seballot/spectrum [TK Yoon(pro@dreamlabs.co.kr) 2021-06-21 09:55:24] -->
 		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
 	
@@ -61,6 +61,10 @@
 
 			.hide {
 				display: none;
+			}
+
+			.inn {
+				background-color: #5b5b5b !important;
 			}
 
 			
@@ -209,11 +213,23 @@
 				clock.setCountdown(true);
 				clock.start();
 		
-				$('#color-picker').spectrum({
+				/** 배경색상 설정 [TK Yoon(pro@dreamlabs.co.kr) 2021-06-21 14:21:19] */
+				$('#color-picker-background').spectrum({
 					type: "component"
-					, change: function(color) {
+					, move: function(color) {
 						console.log(color.toHexString());
 						$('body').css("background-color", color.toHexString());
+					}
+				});
+
+				/** 시계색상 [TK Yoon(pro@dreamlabs.co.kr) 2021-06-21 14:21:34] */
+				$('#color-picker-inn').spectrum({
+					type: "component"
+					, move: function(color) {
+						console.log(`.inn ${color.toHexString()}`);
+						$('.inn').attr('style', `background-color: ${color.toHexString()} !important`);
+						// $('.inn').style("background-color", color.toHexString(), "!important");
+						// $('.inn').css({"background-color" : `${color.toHexString()} !important`});
 					}
 				});
 
@@ -359,9 +375,8 @@
 
 		<button id="btn_stop" class="clock-buttn"> Stop</button>
 		<button id="btn_start" class="clock-buttn"> Start</button>
-		<p/>
-
-		<input id="color-picker" value='#276cb8' />
+		<input id="color-picker-background" value='#276cb8' />
+		<!-- <input id="color-picker-inn" value='#276cb8' /> -->
 
 		<script type="text/javascript" src="lib/MyMath.js"></script>
 		<script type="text/javascript" src="lib/fscreen@1.0.1.js"></script>
